@@ -336,28 +336,14 @@ function countVowels(str) {
  */
 function isPalindrome(str) {
   let newStr = str;
-  newStr = newStr.replaceAll(' ', '').toLowerCase();
-  let isPal = false;
+  newStr = newStr.replaceAll(/[0-9.?!\s,’]/gi, '').toLowerCase();
 
-  if (newStr.length === 1 || newStr.length === 0) {
-    return true;
-  }
   for (let i = 0; i < Math.floor(newStr.length / 2); i += 1) {
-    for (let j = newStr.length - 1; j > Math.floor(newStr.length / 2); j -= 1) {
-      if (
-        newStr[i] === newStr[j] ||
-        newStr[j] === '!' ||
-        newStr[j] === '?' ||
-        newStr[j] === '.'
-      ) {
-        isPal = true;
-        i += 1;
-      } else {
-        return isPal;
-      }
+    if (newStr[i] !== newStr[newStr.length - 1 - i]) {
+      return false;
     }
   }
-  return isPal;
+  return true;
 }
 
 /**
