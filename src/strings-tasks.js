@@ -335,13 +335,26 @@ function countVowels(str) {
  *   isPalindrome('No lemon, no melon') => true
  */
 function isPalindrome(str) {
-  let isPal;
-  if (str.length === 1) {
+  let newStr = str;
+  newStr = newStr.replaceAll(' ', '').toLowerCase();
+  let isPal = false;
+
+  if (newStr.length === 1 || newStr.length === 0) {
     return true;
   }
-  for (let i = 0; i < Math.floor(str.length / 2); i += 1) {
-    for (let j = str.length; j > Math.floor(str.length / 2); j -= 1) {
-      isPal = str[i].toLowerCase() === str[j].toLowerCase();
+  for (let i = 0; i < Math.floor(newStr.length / 2); i += 1) {
+    for (let j = newStr.length - 1; j > Math.floor(newStr.length / 2); j -= 1) {
+      if (
+        newStr[i] === newStr[j] ||
+        newStr[j] === '!' ||
+        newStr[j] === '?' ||
+        newStr[j] === '.'
+      ) {
+        isPal = true;
+        i += 1;
+      } else {
+        return isPal;
+      }
     }
   }
   return isPal;
@@ -461,8 +474,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -481,12 +494,8 @@ function extractEmails(/* str */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  const test = [];
-  for (let i = 0; i < str.length; i++) {
-    test.push(str[i].charCodeAt(0) + 7);
-  }
-  return test;
+function encodeToRot13(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**
