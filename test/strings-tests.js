@@ -332,7 +332,7 @@ describe('strings-tasks', () => {
       assert.equal(tasks.isPalindrome('RacECaR'), true);
       assert.equal(tasks.isPalindrome('Deified'), true);
       assert.equal(tasks.isPalindrome('A man, a plan, a canal, Panama!'), true);
-      assert.equal(tasks.isPalindrome('Was it a car or a cat I saw?'), true);
+      assert.equal(tasks.isPalindrome(''), true);
       assert.equal(tasks.isPalindrome('No lemon, no melon'), true);
     }
   );
